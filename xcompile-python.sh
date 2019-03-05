@@ -116,4 +116,4 @@ make install DESTDIR=$INSTALL_DIR
 echo ""
 echo "-----"
 echo "DONE!"
-echo "Build output directory -> $CONFIG_PREFIX" 
+echo "Build output directory -> $INSTALL_DIR" 
