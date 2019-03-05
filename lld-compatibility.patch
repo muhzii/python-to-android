@@ -1,0 +1,11 @@
+--- configure.ac	2019-03-04 23:51:30.139522499 +0200
++++ configure2.ac	2018-12-23 23:37:36.000000000 +0200
+@@ -932,7 +932,7 @@
+   AC_MSG_RESULT([$_arm_arch])
+   if test "$_arm_arch" = 7; then
+     BASECFLAGS="${BASECFLAGS} -mfloat-abi=softfp -mfpu=vfpv3-d16"
+-    LDFLAGS="${LDFLAGS} -march=armv7-a"
++    LDFLAGS="${LDFLAGS} -march=armv7-a -Wl,--fix-cortex-a8"
+   fi
+ else
+   AC_MSG_RESULT([not Android])
