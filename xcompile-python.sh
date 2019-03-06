@@ -65,7 +65,7 @@ fi
 
 cd $PYTHON_PATH
 
-PATCHES=("lld-compatibility.patch")
+PATCHES=("lld-compatibility")
 
 echo "Applying patches for cross-compilation..."
 sleep 2
@@ -73,8 +73,13 @@ sleep 2
 # copy the patch file and apply patches
 for patch in $PATCHES
 do
-    cp "$srcdir/$patch" $PYTHON_PATH
-    patch -p0 -i $patch
+    patch="$srcdir/$patch.patch"
+    cp $patch $PYTHON_PATH
+    patch -sNp0 --dry-run -i $patch
+    if [ $? -eq 0 ]
+    then
+        patch -p0 -i $patch
+    fi
 done
 
 # paste config.site to python folder
